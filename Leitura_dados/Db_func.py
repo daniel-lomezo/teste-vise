@@ -1,38 +1,12 @@
 # -*- coding: utf-8 -*-
-import pymysql.cursors
-import csv
 from Leitura_dados.Tradutor import Google_Trad
 from Leitura_dados.Conversor_moeda import Busca_moedas
 from openpyxl import load_workbook
 from Leitura_dados.Busca_cep import Requesicao_Cep
-from pprint import pprint
+import pymysql.cursors
+import csv
 import os
-import json
-Create_table = """
 
-CREATE TABLE Desafio (
-id_usuario INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-nome VARCHAR(30),
-sobrenome VARCHAR(30),
-RG VARCHAR(30),
-CPF VARCHAR(30),
-data_nascimento VARCHAR(100),
-logradouro VARCHAR(100),
-complemento VARCHAR(100),
-bairro VARCHAR(100),
-localidade VARCHAR(100),
-uf VARCHAR(2),
-CEP VARCHAR(20),
-dinheiro_real INT(13),
-dinheiro_dolar INT(13),
-profissao VARCHAR(100),
-mercado VARCHAR(100),
-salario_real VARCHAR(100),
-salario_dolar VARCHAR(100),
-lastupdate TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-)
-
-"""
 
 class Conn_db(object):
 
@@ -120,7 +94,3 @@ class Conn_db(object):
 
 
 
-        #sql = "INSERT INTO customers (name, address) VALUES (%s, %s)"
-        #val = ("John", "Highway 21")
-        #with connection.cursor() as cursor:
-        #    cursor.execute(sql, val)
