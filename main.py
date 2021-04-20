@@ -1,42 +1,33 @@
+# -*- coding: utf-8 -*-
+
 # Esse progama tme como objetivo tratar os dados de fontes diferentes
 # Um arquivo csv, xls e um web-service
 
-from Leitura_dados.Busca_cep import Requesicao_Cep
+from Leitura_dados.Tratamento_xls import Tratamento_arquivo
+from Leitura_dados.Tratamento_csv import Tratamento_csv
+from Leitura_dados.Db_func import Conn_db
 
 print('Temos as seguintes opções: \n')
 print('Para visualizar todos os dados pessoais, digite 1')
 print('Para visualizar todos os dados complementares, digite 2')
-print('Para buscar informações combinadas dirto dos arquivos, digite 3')
-print('Para inserir as informações de um funcionáio na base de dados, digite 4')
-print('Para inserir os dados de todos os funcionários, digite 5 \n')
-print('Para sair digite 6')
+print('Para inserir todos os dados na base de dados, digite 3')
+print('Para sair digite 6 \n')
 
-menu = input('Aguardando a opção desejada para continuar ! \n')
 class Init(object):
-    def Menu(self, menu):
+    def Menu(self):
         quit = True
         while quit:
-            if str(menu) =='1':
-                pass
-
-            elif str(menu) == 2:
-                pass
-
-            elif str(menu) == 3:
-                pass
-
-            elif str(menu) == 4:
-                pass
-
-            elif str(menu) == 5:
-                pass
-
-            elif str(menu) == 6:
+            menu = input('Aguardando a opção desejada para continuar ! \n')
+            if str(menu) == '1':
+                Tratamento_arquivo.Visualizar_dados('0')
+            elif str(menu) == '2':
+                Tratamento_csv.Exibe_dados_csv('0')
+            elif str(menu) == '3':
+                Conn_db.Insere_dados('0')
+            elif str(menu) == '6':
                 quit = False
-
-
             else:
                 print('Essa não é uma opção válida')
 
 if __name__ == '__main__':
-    Init.Menu('0', menu)
+    Init.Menu('0')

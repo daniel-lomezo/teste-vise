@@ -1,2 +1,4 @@
+google_trans_new
+mysql-connector-python
 requests
 openpyxl
